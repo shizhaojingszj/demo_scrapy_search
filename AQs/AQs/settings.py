@@ -46,10 +46,9 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-SPIDER_MIDDLEWARES = {
-#    'AQs.middlewares.AqsSpiderMiddleware': 543,
-    "AQs.mypipeline.JsonLinePipeline": 543,
-}
+# SPIDER_MIDDLEWARES = {
+# #    'AQs.middlewares.AqsSpiderMiddleware': 543,
+# }
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
@@ -65,9 +64,9 @@ SPIDER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'AQs.pipelines.AqsPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'AQs.mypipeline.JsonLinePipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
