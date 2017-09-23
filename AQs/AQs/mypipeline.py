@@ -6,7 +6,7 @@ class JsonLinePipeline(object):
 
     def open_spider(self, spider):
 
-        self.file = codecs.open("test.jl", 'w', encoding="utf-8")
+        self.file = codecs.open("test_utf8.jl", 'w', encoding="utf-8")
 
     def close_spider(self, spider):
 
