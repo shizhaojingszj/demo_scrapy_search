@@ -3,7 +3,7 @@ import re
 
 import scrapy
 from scrapy import Item
-from scrapy.http import Request
+from scrapy.http import FormRequest
 from scrapy.shell import inspect_response
 
 class AQ(object):
@@ -12,7 +12,7 @@ class AQ(object):
                                "(?P<day>\d{2})日"
                                "(?P<hour>\d{2}):"
                                "(?P<minute>\d{2}):(?P<second>\d{2})")
-    name_pat = re.compile("“(?P<name>\w+)”的问题")
+    name_pat = re.compile("“(?P<name>.*)”的问题")
 
     def __init__(self, aq_block):
         '''
@@ -80,8 +80,17 @@ class AllSpider(scrapy.Spider):
     start_urls = ['http://apply.bjhjyd.gov.cn/apply/zczx/result.html']
 
     def parse(self, response):
+        #inspect_response(response, self)
         all_aq = response.selector.css(
             "div.blist#consult > dl > dd div.sconsul")
         for n, aq in enumerate(all_aq, 1):
             aq_obj = AQ(aq)
             yield aq_obj.report()
+        # next_page
+        next_page_index = response.selector.xpath("//a[@pageno]/text()") \
+                                           .extract().index("下一页")
+        next_page_number = (response.selector.xpath("//a[@pageno]")
+                            [next_page_index].xpath("@pageno")
+                            .extract_first())
+        yield FormRequest(response.url, callback=self.parse,
+                          formdata={"pageNo": next_page_number})
