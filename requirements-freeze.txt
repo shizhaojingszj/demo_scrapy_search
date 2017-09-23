@@ -7,6 +7,7 @@ constantly==15.1.0
 cryptography==2.0.3
 cssselect==1.0.1
 decorator==4.1.2
+fancycompleter==0.7
 hyperlink==17.3.1
 idna==2.6
 incremental==17.5.0
@@ -19,10 +20,12 @@ lxml==4.0.0
 mccabe==0.6.1
 parsel==1.2.0
 parso==0.1.0
+pdbpp==0.9.1
 pexpect==4.2.1
 pickleshare==0.7.4
 prompt-toolkit==1.0.15
 ptyprocess==0.5.2
+py==1.4.34
 pyasn1==0.3.6
 pyasn1-modules==0.1.4
 pycparser==2.18
@@ -30,6 +33,7 @@ PyDispatcher==2.0.5
 Pygments==2.2.0
 pylint==1.7.2
 pyOpenSSL==17.3.0
+pytest==3.2.2
 queuelib==1.4.2
 Scrapy==1.4.0
 service-identity==17.0.0
@@ -40,5 +44,6 @@ Twisted==17.5.0
 w3lib==1.18.0
 wcwidth==0.1.7
 Whoosh==2.7.4
+wmctrl==0.3
 wrapt==1.10.11
 zope.interface==4.4.3
