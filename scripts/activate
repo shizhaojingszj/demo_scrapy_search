@@ -1,0 +1,5 @@
+#! /bin/env bash
+
+PROJ_DIR=$(dirname $(dirname $(readlink -f $0)))
+
+source $PROJ_DIR/env3/bin/activate
