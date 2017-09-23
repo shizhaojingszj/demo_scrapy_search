@@ -1,0 +1,9 @@
+## production
+scrapy
+ipython
+whoosh
+
+## dev only
+pdbpp
+pylint
+pytest
