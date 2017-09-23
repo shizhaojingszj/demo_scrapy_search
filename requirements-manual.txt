@@ -7,3 +7,4 @@ whoosh
 pdbpp
 pylint
 pytest
+flake8
